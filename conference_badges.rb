@@ -1,33 +1,19 @@
-# Write your code here.
-#array to be passed into batch_badge_creator method
-attendees = ["Edsger", "Ada", "Charles", "Alan", "Grace", "Linus", "Matz"]
-
-#badge_maker method that accepts name parameter and returns a formatted badge
-def badge_maker(name)
-  "Hello, my name is #{name}."
+guests = ["Edsger", "Ada", "Charles", "Alan", "Grace", "Linus", "Matz"]
+def badge_maker(guest)
+  "Hello, my name is #{guest}."
 end
 
-#batch_badge_creator should return a list of badge messages
-def batch_badge_creator(attendees)
-  attendees.collect do |attendee|
-    "Hello, my name is #{attendee}."
-  end
+def batch_badge_creator(guests)
+  guests.collect{|guest| "Hello, my name is #{guest}."}
 end
 
-#assign rooms should return a list of welcome messages and room assignments
-def assign_rooms(attendees)
-  attendees.each_with_index.collect do |attendee, room|
-    "Hello, #{attendee}! You'll be assigned to room #{room+1}!"
-  end
+def assign_rooms(guests)
+  guests.each_with_index.collect{|guest, i| "Hello, #{guest}! You'll be assigned to room #{i+1}!"}
 end
 
-#printer should puts the list of badges and rooms
-def printer(attendees)
-  batch_badge_creator(attendees).each do |badge|
-    puts badge
-  end
-
-  assign_rooms(attendees).each do |room|
-    puts room
-  end
+def printer(guests)
+  batch_badge_creator(guests).each{|badge| puts badge}
+  assign_rooms(guests).each{|room| puts room}
 end
+
+printer(guests)
